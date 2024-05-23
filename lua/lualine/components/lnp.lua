@@ -26,14 +26,16 @@ lnp.update_status = function(self)
 	self._line = vim.fn.line(".")
 	self._col = vim.fn.col(".")
 	self._total = vim.fn.line("$")
-	self._location = string.format("%3d:%-2d", self._line, self._col)
+	self._location = highlight.component_format_highlight(self.highlights.location) .. string.format("%3d:%-2d", self._line, self._col)
 
 	self._progress = ""
 	if self._line == 1 then self._progress = "Top"
 	elseif self._line == self._total then self._progress = "Bot"
 	else self._progress = string.format("%2d%%%%", math.floor(self._line / self._total * 100)) end
+	self._progress = highlight.component_format_highlight(self.highlights.progress) .. self._progress
 
 	self:update_spinner()
+	self._spinner_symbol = highlight.component_format_highlight(self.highlights.spinner) .. self._spinner_symbol
 	return self._location .. " " .. self._progress .. " " .. self._spinner_symbol
 end
 
