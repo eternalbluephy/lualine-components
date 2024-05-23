@@ -14,7 +14,7 @@ lnp.init = function(self, options)
 	lnp.super.init(self, options)
 
 	self.options.colors = vim.tbl_extend("force", lnp.default.colors, self.options.colors or {})
-	self.spinner_symbols = vim.tbl_extend("force", lnp.dafault.spinner_symbols, self.options.spinner_symbols or {})
+	self.spinner_symbols = vim.tbl_extend("force", lnp.default.spinner_symbols, self.options.spinner_symbols or {})
 	if self.options.colors.use then
 		self.highlights.location = highlight.create_component_highlight_group({ fg = self.options.colors.location }, "lnp_location", self.options)
 		self.highlights.progress = highlight.create_component_highlight_group({ fg = self.options.colors.progress }, "lnp_progress", self.options)
