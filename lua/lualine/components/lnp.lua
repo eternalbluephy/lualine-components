@@ -26,7 +26,7 @@ lnp.update_status = function(self)
 	self._line = vim.fn.line(".")
 	self._col = vim.fn.col(".")
 	self._total = vim.fn.line("$")
-	self._location = highlight.component_format_highlight(self.highlights.location) .. string.format("%3d:%-2d", self._line, self._col)
+	self._location = highlight.component_format_highlight(self.highlights.location) .. string.format("%3d:%d", self._line, self._col)
 
 	self._progress = ""
 	if self._line == 1 then self._progress = "Top"
