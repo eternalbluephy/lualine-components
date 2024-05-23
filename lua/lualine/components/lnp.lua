@@ -3,8 +3,8 @@ local lnp = require("lualine.component"):extend()
 
 lnp.default = {
 	colors = {
-		location = "#CCC",
-		progress = "#CCC",
+		location = "",
+		progress = "",
 		spinner = "#FF8800"
 	},
 	spinner_symbols = { "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" },
@@ -15,7 +15,8 @@ lnp.init = function(self, options)
 
 	self.options.colors = vim.tbl_extend("force", lnp.default.colors, self.options.colors or {})
 	self.options.spinner_symbols = vim.tbl_extend("force", lnp.default.spinner_symbols, self.options.spinner_symbols or {})
-	
+
+	self.highlights = {}
 	self.highlights.location = highlight.create_component_highlight_group({ fg = self.options.colors.location }, "lnp_location", self.options)
 	self.highlights.progress = highlight.create_component_highlight_group({ fg = self.options.colors.progress }, "lnp_progress", self.options)
 	self.highlights.spinner = highlight.create_component_highlight_group({ fg = self.options.colors.spinner }, "lnp_spinner", self.options)
