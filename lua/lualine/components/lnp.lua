@@ -52,3 +52,5 @@ lnp.update_spinner = function(self)
 		end
 	end
 end
+
+return lnp
